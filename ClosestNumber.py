@@ -1,4 +1,3 @@
-
 '''
 Created on Feb 27, 2016
 
@@ -19,7 +18,7 @@ base = []
 multiple = []
 
 for i in range(n):
-    aRaiseB.append(math.pow(a[i][0], a[i][1]))
+    aRaiseB.append(int(math.pow(a[i][0], a[i][1])))
     base.append(a[i][2])
 
 
@@ -27,6 +26,7 @@ for i in range(n):
     j = 0
     while(aRaiseB[i] > base[i]*j):
         j = j + 1
+    j = j - 1
     if (abs(aRaiseB[i] - base[i]*j) == abs(aRaiseB[i] - base[i]*(j+1))):
         multiple.append(base[i]*j)
     elif (abs(aRaiseB[i] - base[i]*j) < abs(aRaiseB[i] - base[i]*(j+1))):

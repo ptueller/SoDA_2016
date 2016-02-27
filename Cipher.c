@@ -6,18 +6,19 @@
 int main() {
 
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
-    int n, k;
-    int temp=0;
+    long int n, k;
+    long int temp=0;
     char chartemp;
-    scanf("%d %d\n",&n,&k);
-    char s[n+k-1];
-    char work[k][n+k-1];
-    for(int i=n+k-2;i>=0;i--) {
+    scanf("%lld %lld\n",&n,&k);
+    long long int stringlen = n+k-1;
+    char s[stringlen];
+    char work[k][stringlen];
+    for(long long int i=stringlen-1;i>=0;i--) {
         scanf("%c",&s[i]);
     }
-    memset(work,'0',k*(n+k-1));
-    for(int i=0;i<(n+k-1);i++) {
-        for(int j=0;j<k;j++) {
+    memset(work,'0',k*stringlen);
+    for(long int i=0;i<stringlen;i++) {
+        for(long long int j=0;j<k;j++) {
             if(work[j][i]=='0') {
                 temp ^= 0;
             }
@@ -40,13 +41,13 @@ int main() {
             chartemp='1';
         }
         //printf("Setting i=%d to %c\n",i,chartemp);
-        for(int j=0;j<k;j++) {
-            if(i+j >= n+k-1) break;
+        for(long long int j=0;j<k;j++) {
+            if(i+j >= stringlen) break;
             work[j][i+j]=chartemp;
         }
         temp=0;
     }
-    for(int i=n-1;i>=0;i--) {
+    for(long long int i=n-1;i>=0;i--) {
         printf("%c",work[0][i]);
     }
     return 0;

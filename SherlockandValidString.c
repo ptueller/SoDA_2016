@@ -6,7 +6,7 @@
 int main() {
 
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
-    char s[10000];
+    char s[100000];
     int alphabet[26];
     scanf("%s",s);
     int numbers[strlen(s)];
@@ -24,7 +24,7 @@ int main() {
     for(int i=0;i<26;i++) { //Numbers contains the number of the number of occurrences
         if(alphabet[i]==0) continue;
         numbers[alphabet[i]]++;
-        printf("i=%d: numbers[%d]=%d\n",i,alphabet[i],numbers[alphabet[i]]);
+        //printf("i=%d: numbers[%d]=%d\n",i,alphabet[i],numbers[alphabet[i]]);
     }
     for(int i=0;i<strlen(s);i++) {
         if(numbers[i]>max) {
@@ -32,7 +32,7 @@ int main() {
             common = i;
         }
     }
-    printf("common = %d\n",common);
+    //printf("common = %d\n",common);
     //Common contains the most common number of occurrences
     //Now we look for deviations from the common number of occurrences
     int deviation=0;
@@ -40,7 +40,7 @@ int main() {
         if(i==common) continue;
         if(numbers[i]==0) continue;
         if(abs(common-i)>1 && !(i==1 && numbers[i]==1)) {
-            printf("i = %d\n",i);
+            //printf("i = %d\n",i);
             printf("NO");
             return 0;
         }
@@ -48,7 +48,7 @@ int main() {
             deviation += numbers[i];
         }
     }
-    printf("deviation = %d\n",deviation);
+    //printf("deviation = %d\n",deviation);
     if(deviation>1) printf("NO");
     else printf("YES");
     return 0;

@@ -29,12 +29,19 @@ int main(){
         if(m>30) {
             newm=60-m;
             strcpy(finMin,hourwords[newm]);
-            strcat(finMin," minutes to");
-            strcpy(finHour,hourwords[h+1]);
+            if(newm==1) strcat(finMin," minute to");
+            else if(newm==15) strcat(finMin," to");
+            else strcat(finMin," minutes to");
+            if(h==12) h=1;
+            else h++;
+            strcpy(finHour,hourwords[h]);
         }
         else {
             strcpy(finMin,hourwords[m]);
-            strcat(finMin," minutes past");
+            if(m==30) strcat(finMin," past");
+            else if(m==1) strcat(finMin," minute past");
+            else if(m==15) strcat(finMin," past");
+            else strcat(finMin," minutes past");
             strcpy(finHour,hourwords[h]);
         }
     }

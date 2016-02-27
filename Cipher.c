@@ -41,7 +41,7 @@ int main() {
         }
         //printf("Setting i=%d to %c\n",i,chartemp);
         for(int j=0;j<k;j++) {
-            if(i+j > n+k-1) break;
+            if(i+j >= n+k-1) break;
             work[j][i+j]=chartemp;
         }
         temp=0;

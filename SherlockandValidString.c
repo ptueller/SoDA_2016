@@ -12,13 +12,15 @@ int main() {
     int numbers[strlen(s)];
     int common=0;
     int max=0;
-    memset(alphabet,0,26);
-    memset(numbers,0,strlen(s));
+    memset(alphabet,0,sizeof(int)*26);
+    memset(numbers,0,sizeof(int)*strlen(s));
     for(int i=0;i<strlen(s);i++) { //Alphabet contains the number of occurrences of each letter
         alphabet[s[i]-97]++;
     }
     for(int i=0;i<26;i++) { //Numbers contains the number of the number of occurrences
+        if(alphabet[i]==0) continue;
         numbers[alphabet[i]]++;
+        //printf("numbers[%d]=%d\n",alphabet[i],numbers[alphabet[i]]);
     }
     for(int i=0;i<strlen(s);i++) {
         if(numbers[i]>max) {
@@ -26,19 +28,23 @@ int main() {
             common = i;
         }
     }
+    //printf("common = %d\n",common);
     //Common contains the most common number of occurrences
     //Now we look for deviations from the common number of occurrences
     int deviation=0;
-    for(int i=0;i<strlen(s);i++) {
+    for(int i=1;i<strlen(s);i++) {
         if(i==common) continue;
-        if(numbers[i]>0 && (abs(common-i)>1)) {
+        if(numbers[i]==0) continue;
+        if(abs(common-i)>1) {
+            //printf("i = %d\n",i);
             printf("NO");
             return 0;
         }
-        else if(numbers[i]>0 && abs(common-i)==1) {
-            deviation++;
+        else if(abs(common-i)==1) {
+            deviation += numbers[i];
         }
     }
+    //printf("deviation = %d\n",deviation);
     if(deviation>1) printf("NO");
     else printf("YES");
     return 0;

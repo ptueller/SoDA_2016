@@ -36,6 +36,5 @@ for i in range(n):
 
 
 
-print("\n\naRaiseB\n", aRaiseB)
-print("base\n", base)
-print("multiple\n", multiple)
+for i in multiple:
+    print(i)

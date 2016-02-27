@@ -26,7 +26,8 @@ for i in range(n):
     j = 0
     while(aRaiseB[i] > base[i]*j):
         j = j + 1
-    j = j - 1
+    if(j > 0):
+        j = j - 1
     if (abs(aRaiseB[i] - base[i]*j) == abs(aRaiseB[i] - base[i]*(j+1))):
         multiple.append(base[i]*j)
     elif (abs(aRaiseB[i] - base[i]*j) < abs(aRaiseB[i] - base[i]*(j+1))):

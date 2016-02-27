@@ -16,10 +16,10 @@ int main(){
     
     int newm;
     
-    char finMin[20];
-    char finHour[20];
-    memset(finMin,0,20);
-    memset(finHour,0,20);
+    char finMin[100];
+    char finHour[100];
+    memset(finMin,0,100);
+    memset(finHour,0,100);
     
     if(m==0) {
         strcpy(finMin,hourwords[h]);

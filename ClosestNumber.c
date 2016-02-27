@@ -22,10 +22,10 @@ int main() {
         scanf("%d %d %d\n",&s[i].a,&s[i].b,&s[i].x);
     }
     for(int i=0;i<t;i++) {
-        count=0;
+        count = 0;
         temp = 0;
         raised = pow(s[i].a,s[i].b);
-        if(raised>s[i].x) {
+        if(raised>0) {
             while(temp < (raised-s[i].x)) temp = s[i].x * count++;
             if((temp + s[i].x - raised) < (raised - temp)) {
                 printf("%d\n",temp + s[i].x);

@@ -12,6 +12,10 @@ int main() {
     int numbers[strlen(s)];
     int common=0;
     int max=0;
+    if(strlen(s)==1) {
+        printf("YES");
+        return 0;
+    }
     memset(alphabet,0,sizeof(int)*26);
     memset(numbers,0,sizeof(int)*strlen(s));
     for(int i=0;i<strlen(s);i++) { //Alphabet contains the number of occurrences of each letter
